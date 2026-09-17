@@ -1,0 +1,50 @@
+# Кадры «до» из перекрытий — чужие старые татуировки. Посетителю они видны в сетке
+# на /perekrytie, но своего ImageObject не имеют и в sitemap не попадают; чтобы они
+# не оказались в Картинках просто как файлы со страницы, запрещаем их явно.
+# Запрет повторён в группах Googlebot и Yandex не по забывчивости: робот исполняет
+# ТОЛЬКО свою группу и правила из «User-agent: *» при этом не читает.
+
+User-agent: *
+Allow: /
+Disallow: /hero.mp4
+Disallow: /dist/gallery/coverup/*_before.webp
+
+User-agent: Googlebot
+Allow: /
+Disallow: /hero.mp4
+Disallow: /dist/gallery/coverup/*_before.webp
+
+User-agent: Yandex
+Allow: /
+Disallow: /hero.mp4
+Disallow: /dist/gallery/coverup/*_before.webp
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Краулеры обучения и AI-поиска, появившиеся после первой редакции файла.
+# Это гигиена: молчание трактуется каждым роботом по-своему, явное «Allow»
+# снимает неоднозначность. Видимости в ответах моделей файл не даёт —
+# её дают внешние упоминания сайта, а не разрешение в robots.txt.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://kissovskaya.ru/sitemap.xml
